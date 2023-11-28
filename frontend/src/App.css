@@ -1,16 +1,7 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: 'Roboto Mono', monospace;
+  background-color: #BED6DB;
 }
 
 .App-header {
@@ -28,11 +19,62 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  color: white;
+  background-color: #9cc1c9;
+  padding: 5px
+}
+
+.chat-container {
+  grid-template-rows: 3fr 1fr;
+  color:white;
+  text-shadow: #282c34;
+}
+
+.chat-message-container {
+  overflow-y: scroll;
+  height: 570px;
+}
+
+.chat-message {
+  background-color: #BED6DB;
+  text-align: left;
+  margin-right: 500px;
+  padding-left: 100px;
+  padding-right: 1200px
+}
+
+.chat-message-content {
+  text-shadow: 1px 1px grey;
+  position: relative;
+  left: 110px;
+  bottom: 105px
+}
+
+.chat-message img {
+  display: inline;
+  white-space: nowrap;
+  position: relative;
+  padding-top: 7px;
+}
+
+.chat-input {
+  padding: 10px;
+}
+
+.chat-input input {
+  padding-right: 100px;
+  margin-right: 5px;
+}
+
+.chat-input button {
+  background-color: aquamarine;
+  font-family: 'Roboto Mono', monospace;
+  font-style: bold;
+  font-size: 20px;
+}
+
+.navbar {
+  background-color: #9cc1c9;
+  padding: 5px;
 }
