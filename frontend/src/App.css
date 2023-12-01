@@ -37,25 +37,27 @@ footer {
 }
 
 .chat-message {
+  position: relative;
+  display: inline;
   background-color: #BED6DB;
   text-align: left;
   margin-right: 500px;
+  margin-bottom: 0px;
+  margin-top: 0px;
   padding-left: 100px;
-  padding-right: 1200px
+  padding-right: 1200px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .chat-message-content {
   text-shadow: 1px 1px grey;
   position: relative;
-  left: 110px;
-  bottom: 105px
 }
 
-.chat-message img {
-  display: inline;
-  white-space: nowrap;
+.chat-user-img {
   position: relative;
-  padding-top: 7px;
+  padding-top: 0px;
 }
 
 .chat-input {

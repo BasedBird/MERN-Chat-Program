@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ChatMessageContainer from './ChatMessageContainer'
 import ChatForm from './ChatForm'
 
 const ChatContainer = () => {
-  const tempMessages = [
-    {
-        user: 'pongu',
-        content: 'example message'
-    }
-  ]
+  const [messages, setMessages] = useState([{
+    user: 'pongu',
+    content: 'content'
+  }
+  ])
+
+  const addMessage = (message) => {
+    setMessages([ ...messages, message ])
+  }
 
   return (
     <div className='chat-container'>
-      <ChatMessageContainer messages={tempMessages}/>
-      <ChatForm />
+      <ChatMessageContainer tempMessages={messages}/>
+      <ChatForm addMessage={ addMessage }/>
     </div>
   )
 }
