@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const chatSchema = new Schema({
     user: {
         type: String,
-        required: trusted
+        required: true
     },
     content: {
         type: String,

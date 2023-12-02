@@ -6,7 +6,19 @@ const getChat = async (req, res) => {
     res.status(200).json(chat)
 }
 
-const newMessage = async (message) => {
+const newMessageREST = async (req, res) => {
+    const {user, content} = req.body
+
+    try {
+        const chat = await Chat.create({user, content})
+        res.status(200).json(chat)
+    }
+    catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
+const newMessageWS = async (message) => {
     const {user, content} = message
 
     try {
@@ -26,4 +38,10 @@ const deleteMessage = async (id) => {
     if (!chat) {
 
     }
+}
+
+module.exports = {
+    getChat,
+    newMessageREST,
+    newMessageWS
 }
