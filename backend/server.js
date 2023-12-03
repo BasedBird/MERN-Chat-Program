@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGO_URI)
     io.on('connection', (socket) => {
         console.log('user connected!')
         socket.on('new_message', (data) => {
-            console.log(data)
+            io.emit('recieved_message', data)
         })
     })
     
