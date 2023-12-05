@@ -5,7 +5,7 @@ const ChatMessage = ( {message} ) => {
   return (
     <div className='chat-message'>
         <p> 
-          {message.user}  {message.content}
+          <span>{message.user}:  {message.content}</span>
         </p>
     </div>
   )

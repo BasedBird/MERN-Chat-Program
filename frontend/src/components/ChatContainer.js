@@ -3,34 +3,24 @@ import ChatMessageContainer from './ChatMessageContainer'
 import ChatForm from './ChatForm'
 import io from 'socket.io-client'
 
-const URL = 'http://localhost:3001'
-const socket = io.connect(URL)
-
 const ChatContainer = () => {
   const [messages, setMessages] = useState([])
-
-  socket.on("recieved_message", (data) => {
-    recievedMessage(data);
-  });  
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    // const fetchMessages = async () => {
-    //   const res = await fetch('http://localhost:5000/api')
-    //   const json = await res.json()
-      
-    //   if (res.ok) {
-    //     setMessages(json)
-    //   }
-    // }
-    // fetchMessages()
-  }, [])
+    const URL = 'http://localhost:3001'
+    const newSocket = io.connect(URL)
+    newSocket.on("recieved_message", (message) => {
+      setMessages((prevMessages) => [ ...prevMessages, message ])
+    });  
+    setSocket(newSocket)
+    return () => {
+      newSocket.close()
+    }
+  }, [setSocket])
 
   const addMessage = (message) => {
     socket.emit('new_message', message)
-  }
-
-  const recievedMessage = (message) => {
-    setMessages([ ...messages, message ])
   }
 
   return (

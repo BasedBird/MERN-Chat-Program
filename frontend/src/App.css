@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   font-family: 'Roboto Mono', monospace;
-  background-color: #BED6DB;
 }
 
 .App-header {
@@ -28,7 +27,7 @@ footer {
 .chat-container {
   grid-template-rows: 3fr 1fr;
   color:white;
-  text-shadow: #282c34;
+  background-color: #BED6DB;
 }
 
 .chat-message-container {
@@ -38,21 +37,18 @@ footer {
 
 .chat-message {
   position: relative;
-  display: inline;
-  background-color: #BED6DB;
   text-align: left;
-  margin-right: 500px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  padding-left: 100px;
-  padding-right: 1200px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  left: 30px;
+  margin-bottom: 40px;
+  margin-top: 30px
 }
 
-.chat-message-content {
-  text-shadow: 1px 1px grey;
-  position: relative;
+.chat-message span {
+  text-shadow: 1px 1px #BED6DB;
+  background: #9cc1c9;
+  border-radius: 25px;
+  padding: 15px;
+
 }
 
 .chat-user-img {
@@ -78,5 +74,6 @@ footer {
 
 .navbar {
   background-color: #9cc1c9;
+  color: white;
   padding: 5px;
 }
