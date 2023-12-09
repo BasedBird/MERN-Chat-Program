@@ -35,11 +35,18 @@ const SignIn = () => {
           setPort(e.target.value)
         }}
       />
-      <button onClick={() => {
-        setUser({
-          ...user, 
-          username: username,
-          isSignedIn: true})
+      <button onClick={async () => {
+        if (username === ""){
+          setUser({
+            ...user, 
+            username: 'guest',
+            isSignedIn: true})
+        } else {
+          setUser({
+            ...user, 
+            username: username,
+            isSignedIn: true})
+        }
       }}>Submit</button>
     </div>
   )

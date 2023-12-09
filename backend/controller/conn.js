@@ -2,7 +2,7 @@ const Chat = require('../models/chatModel')
 const mongoose = require('mongoose')
 
 const getChat = async (req, res) => {
-    const chat = await Chat.find({}).sort({createdAt: -1})
+    const chat = await Chat.find({}).sort({createdAt: 1})
     res.status(200).json(chat)
 }
 
@@ -25,7 +25,7 @@ const newMessageWS = async (message) => {
         const chat = await Chat.create({user, content})
     }
     catch (error) {
-
+        console.log(error)
     }
 }
 

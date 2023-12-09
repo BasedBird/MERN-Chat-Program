@@ -6,6 +6,7 @@ const server = http.createServer(app)
 const { Server } = require('socket.io')
 const mongoose = require('mongoose')
 const apiRoutes = require('./routes/api')
+const { newMessageWS } = require('./controller/conn')
 require('dotenv').config()
 
 const PORT = process.env.PORT
@@ -32,16 +33,17 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(`listening on port: ${PORT}`)
     })
 
-    // io.on('connection', (socket) => {
-    //     console.log('user connected!')
-    //     socket.on('new_message', (data) => {
-    //         io.emit('recieved_message', data)
-    //     })
-    // })
+    io.on('connection', (socket) => {
+        console.log('user connected!')
+        socket.on('new_message', (data) => {
+            newMessageWS(data)
+            io.emit('recieved_message', data)
+        })
+    })
     
-    // server.listen(3001, () => {
-    //     console.log('WS server running')
-    // })
+    server.listen(3001, () => {
+        console.log('WS server running')
+    })
 })
 .catch((error) => console.log(error))
 

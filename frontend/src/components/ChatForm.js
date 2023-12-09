@@ -1,14 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 const ChatForm = ( {addMessage} ) => {
-const [user, setUser] = useState('pongu')
+const { user } = useContext( UserContext )
 const [content, setContent] = useState('')
 
 const onSubmit = (e) => {
   e.preventDefault()
   const temp = {
-    user: user,
+    user: user.username,
     content: content
   }
   addMessage(temp)

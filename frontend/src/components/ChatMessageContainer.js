@@ -10,7 +10,7 @@ const ChatMessageContainer = ( {tempMessages} ) => {
   return (
     <div className='chat-message-container' id='chat-message-container'>
         {tempMessages.map((message) => (
-            <ChatMessage key={Math.random * 1000} message={message} />   
+            <ChatMessage key={Math.random() * 1000} message={message} />   
         ))}
     </div>
   )
