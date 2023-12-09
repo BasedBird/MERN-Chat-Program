@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 import pingu from '../img/pingu.png'
 
 const ChatMessage = ( {message} ) => {
+  const { user } = useContext( UserContext )
   return (
     <div className='chat-message'>
         <p> 

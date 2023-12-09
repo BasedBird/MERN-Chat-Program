@@ -36,7 +36,10 @@ const SignIn = () => {
         }}
       />
       <button onClick={() => {
-        setUser({...user, isSignedIn: true})
+        setUser({
+          ...user, 
+          username: username,
+          isSignedIn: true})
       }}>Submit</button>
     </div>
   )

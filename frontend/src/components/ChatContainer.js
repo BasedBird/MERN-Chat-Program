@@ -8,7 +8,17 @@ const ChatContainer = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const URL = 'http://localhost:3001'
+    const fetchMessages = async () => {
+      const res = await fetch('http://pongcord.mooo.com:5000/api')
+      const json = await res.json()
+      
+      if (res.ok) {
+        setMessages(json)
+      }
+    }
+    fetchMessages()
+
+    const URL = 'http://pongcord.mooo.com:3001'
     const newSocket = io.connect(URL)
     newSocket.on("recieved_message", (message) => {
       setMessages((prevMessages) => [ ...prevMessages, message ])

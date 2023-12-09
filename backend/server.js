@@ -12,9 +12,14 @@ const PORT = process.env.PORT
 
 const io = new Server( server, {
     cors: {
-      origin: `http://localhost:3000`,
+      origin: `http://pongcord.mooo.com:3000`,
       methods: ["GET", "POST"],
     }
+})
+
+app.use((req, res, next) => {
+    console.log(req.path + " " + req.method)
+    next()
 })
 
 app.use(cors())
@@ -27,16 +32,16 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(`listening on port: ${PORT}`)
     })
 
-    io.on('connection', (socket) => {
-        console.log('user connected!')
-        socket.on('new_message', (data) => {
-            io.emit('recieved_message', data)
-        })
-    })
+    // io.on('connection', (socket) => {
+    //     console.log('user connected!')
+    //     socket.on('new_message', (data) => {
+    //         io.emit('recieved_message', data)
+    //     })
+    // })
     
-    server.listen(3001, () => {
-        console.log('WS server running')
-    })
+    // server.listen(3001, () => {
+    //     console.log('WS server running')
+    // })
 })
 .catch((error) => console.log(error))
 
